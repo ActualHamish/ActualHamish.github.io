@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SciFest 2026 Study Landing Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            gap: 20px;
+            padding-top: 40px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+
+        button {
+            padding: 15px 25px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            width: 220px;
+        }
+
+        .survey { background-color: #d93025; }
+        .stroop { background-color: #7248b9; }
+        .reactiontime { background-color: #1a73e8; }
+        .digits { background-color: #fbbc05; color: black; }
+        .sequence { background-color: #34a853; }
+        .recording { background-color: #ff6d01; } /* NEW */
+
+        button:hover {
+            opacity: 0.85;
+        }
+    </style>
+</head>
+<body>
+
+<h1>SciFest Tests</h1>
+
+<div class="button-container">
+    <button class="survey" id="surveyBtn">Open Survey</button>
+    <button class="stroop" id="stroopBtn">Test 1</button>
+    <button class="reactiontime" id="reactiontimeBtn">Test 2</button>
+    <button class="digits" id="digitsBtn">Test 3</button>
+    <button class="sequence" id="sequenceBtn">Test 4</button>
+    <button class="recording" id="recordingBtn">Recording Results</button>
+</div>
+
+<script>
+    document.getElementById("surveyBtn").addEventListener("click", function() {
+        window.open("https://docs.google.com/forms/d/e/1FAIpQLSe6DqSTmPuBYgr7qlON3nrZVx7lVvfZILg_1CdFQomqPYyvQg/viewform", "_blank");
+    });
+
+    document.getElementById("stroopBtn").addEventListener("click", function() {
+        window.open("https://oneday.agency/color-stroop-test", "_blank");
+    });
+
+    document.getElementById("reactiontimeBtn").addEventListener("click", function() {
+        window.open("https://faculty.washington.edu/chudler/java/redgreen.html", "_blank");
+    });
+
+    document.getElementById("digitsBtn").addEventListener("click", function() {
+        window.open("https://tools.timodenk.com/digit-span-test", "_blank");
+    });
+    
+    document.getElementById("sequenceBtn").addEventListener("click", function() {
+        window.open("https://memoryos.com/memory-test/sequence-memory-play", "_blank");
+    });
+
+    // ✅ Recording Results button
+    document.getElementById("recordingBtn").addEventListener("click", function() {
+        const newWindow = window.open("", "_blank");
+
+        newWindow.document.write(`
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <title>Recording Results</title>
+                <style>
+                    body {
+                        font-family: Arial, sans-serif;
+                        background-color: #f4f4f4;
+                        padding: 40px;
+                        max-width: 800px;
+                        margin: auto;
+                    }
+                    h1 {
+                        text-align: center;
+                        margin-bottom: 30px;
+                    }
+                    p {
+                        margin-bottom: 20px;
+                        line-height: 1.6;
+                    }
+                </style>
+            </head>
+            <body>
+                <h1>Recording Results</h1>
+				<h2>RAISE YOUR HAND IF YOU NEED HELP</h2>
+
+                <p>1. You have gotten a slip of paper.
+				Write your name on the back of this slip.</p>
+                <p>2. Go to your 'Stroop Colour Test' tab.
+				Underneath the test you have completed, there should be 3 numbers.
+				Write these numbers beside 'T1' on your slip of paper.</p>
+                <p>3. Go to your 'Reaction Time' tab.
+				Write down the number beside 'AVG' beside 'T2' on your paper.</p>
+                <p>4. Go to your 'Digit Span Test' tab.
+				Write down which level you failed at beside 'T3'. It can be found at the blue box near the top of your screen.</p>
+				<p>5. Go to your 'Sequence Memory Test' tab.
+				Your result should be the number in front of you. Write the number down beside 'T4'</p>
+            </body>
+            </html>
+        `);
+
+        newWindow.document.close();
+    });
+</script>
+
+</body>
+</html>
